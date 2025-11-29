@@ -11,7 +11,7 @@ public class Subject {
 
     public void setMark(int mark) {
         if(mark<0 || mark>5){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Note ist nicht zwischen 0 und 5");
         }
         this.mark = mark;
     }
@@ -29,7 +29,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "----------\nSubject: \n Mark="+mark+"\nName="+name+"\n----------";
+        return "Fach: "+name+", Note: "+mark;
     }
 
     @Override

@@ -42,7 +42,7 @@ public class Pupil {
             valid = false;
         }
         if(!valid){
-            throw new IllegalArgumentException("Klasse nicht null oder leer sein oder muss mit einer Zahl beginnen");
+            throw new IllegalArgumentException("Klasse darf nicht null oder leer sein und muss mit einer Zahl beginnen");
         }
         this.schoolClass = schoolClass;
     }
@@ -105,12 +105,11 @@ public class Pupil {
 
     @Override
     public String toString() {
-        return "Pupil{" +
-                "name='" + name + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", schoolClass='" + schoolClass + '\'' +
-                ", subjects=" + subjects +
-                '}';
+        return "Pupil\n" +
+                "name='" + name + '\n' +
+                "dateOfBirth=" + dateOfBirth +"\n"+
+                "schoolClass='" + schoolClass + '\n' +
+                "subjects=" + subjects.toString() + "\n";
     }
 
     public String getKey(){

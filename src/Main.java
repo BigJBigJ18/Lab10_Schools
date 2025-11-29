@@ -17,6 +17,24 @@ public class Main {
                 "Biologie:4 Geographie:3 BSP:1");
         Pupil p5=generatePupil("Jornandes Raible 2BHIF Faecher Mathematik:1 Deutsch:2 POS:1 Englisch:1 Biologie:1 BSP:1");
         System.out.println(p3.getKey());
+        school.addPupil(p1);
+        school.addPupil(p2);
+        school.addPupil(p3);
+        school.addPupil(p4);
+        school.addPupil(p5);
+        System.out.println("-----------------------------------------");
+        school.display();
+        System.out.println("-----------------------------------------");
+        school.delPupils(p3.getKey());
+        school.delPupils(p3.getKey());
+        System.out.println("-----------------------------------------");
+        school.display();
+        System.out.println("-----------------------------------------");
+        System.out.println(school.getPupil(p4.getKey()).bestSubjects());
+        System.out.println(school.getPupil(p4.getKey()).average());
+        System.out.println("-----------------------------------------");
+        p4.delSubject(new Subject(1, "Mathematik"));
+        System.out.println(p4.bestSubjects());
     }
 
     public static Pupil generatePupil(String s){
@@ -24,6 +42,9 @@ public class Main {
             String[] values=s.split(" ");
             List<Subject> subjects=new ArrayList<>();
             LocalDate geb=LocalDate.now().plusDays(new Random().nextInt(1, 365*5));
+            if(!values[3].equals("Faecher")){
+                throw new IllegalArgumentException("Formation ist falsch");
+            }
             for(int i=4;i<values.length;i++){
                 subjects.add(new Subject(Integer.parseInt(values[i].split(":")[1]), values[i].split(":")[0]));
             }
